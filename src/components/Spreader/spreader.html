@@ -1,0 +1,38 @@
+<div>
+  <h3>Spreader</h3>
+  <div>
+    <label for="numChannels">Frequency divisions</label><input id="numChannels" type="number" min="2" max="48" v-model="numChannels"></input>
+  </div>
+  <div>
+    <button v-on:click="tomHit" class="btn btn-default">Tom</button>
+    <button v-on:click="micToggle" class="btn btn-default">Mic</button>
+    <select v-model="userMediaChannel">
+      <option v-for="option in userMediaOptions" v-bind:value="option.deviceId">
+        {{ option.label }}
+      </option>
+    </select>
+  </div>
+  <div>
+    <input type="file" v-on:change="changeFile"></input>
+    <label for="filePlaying">Play</label><input id="filePlaying" type="checkbox" data-toggle="toggle" v-model="filePlaying"></input>
+    <label for="fileLoop">Loop</label><input id="fileLoop" type="checkbox" data-toggle="toggle" v-model="fileLoop"></input>
+    <label for="fileVolume">Volume</label><input id="fileVolume" type="range" min="0.0" max="1.0" step="0.01" v-model="fileVolume"></input>
+  </div>
+  <div>
+    <label for="baseDelayTime">Upper Delay Time</label>
+    <input id="baseDelayTime" type="range" :min="minDelayTime * 2" :max="maxDelayTime" step="0.01" v-model="baseDelayTime"></input>
+    <span>{{ baseDelayTime }}</span>
+  </div>
+  <div>
+    <label for="feedbackLevel">Feedback Amount</label>
+    <input id="feedbackLevel" type="range" min="0.0" max="1.5" step="0.01" v-model="feedbackLevel"></input>
+    <span>{{ feedbackLevel }}</span>
+  </div>
+  <div>
+    <label for="dryLevel">Dry Amount</label>
+    <input id="dryLevel" type="range" min="0.0" max="1.0" step="0.01" v-model="dryLevel"></input>
+  </div>
+  <div id="editor">
+    <canvas id="visCanvas" width="700" height="500"></canvas>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+#editor {
+  position: relative;
+
+  canvas, svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  svg {
+    .timeAxis .tick line {
+      stroke: #CCC;
+    }
+
+    .freqLineControl {
+      fill: white;
+      stroke: black;
+
+      &.selected {
+        fill: #CCCCFF;
+      }
+    }
+  }
+}
